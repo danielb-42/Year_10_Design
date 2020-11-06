@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+<link rel="stylesheet" href="style.css">
+    <title>Recipe Finder</title> 
+    
+
+    <script>
+
+id = '9003' 
+	fetch("https://api.spoonacular.com/recipes/" + id + "/information?apiKey=8252d298602840e0801619e65c16d6ec")
+		.then((res) => res.json()) 
+
+.then(output => {
+    var data = output; 
+    console.log(data);
+    }
+)
+
+    </script>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <input type="text" placeholder="Search...">
+
+      </div>
+</body>
+
+</head>
+
+
