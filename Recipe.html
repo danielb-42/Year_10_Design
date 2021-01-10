@@ -1,37 +1,203 @@
 <!DOCTYPE html>
+  <head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<head>
-<link rel="stylesheet" href="Recipe.css">
-    <title>Recipe Finder</title> 
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  </head>
+    <title>Recipe Search</title>
+
+    <nav class="teal lighten-1" role="navigation">
+        <div class="nav-wrapper container black-text">
+          <a id="logo-container" href="#" class="brand-logo">Daniel's Food Finder</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="file:///Users/daniel.barr/Desktop/Git_Hub_Repo/Year_10_Design/Folder%202:%20Project%201%20Work/index2.html">Home</a></li>
+            <li><a href="file:///Users/daniel.barr/Desktop/Git_Hub_Repo/Year_10_Design/Folder%202:%20Project%201%20Work/Recipe.html">Search</a></li>
+          </ul>
+    
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="#">Navbar Link</a></li>
+          </ul>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      
+    <input id="search" placeholder="Search...">
+     <div class = "SearchButton">
+      <button onclick="TitleCheck(document.getElementById('search').value); LinkCheck(document.getElementById('search').value); ImageCheck(document.getElementById('search').value); ServingsCheck(document.getElementById('search').value); TimeCheck(document.getElementById('search').value)">Search</button>
+      </div>
+    <div id="output"></div>
+    <a href="" id="sourceLink"></a>
+   
+   <script>
+
+function getsource(id){
+        $.ajax({
+            url:"https://api.spoonacular.com/recipes/"+id+"/information?apiKey=8252d298602840e0801619e65c16d6ec",
+        success: function(res) {
+            document.getElementById("sourceLink").innerHTML=res.sourceUrl
+        document.getElementById("sourceLink").href=res.sourceUrl
+    }
+    });
+    }
+    
+    
+    function TitleCheck(q){
+      var TitleBox = document.getElementById("TitleCheck");
+      
+      if (TitleBox.checked == true){
+        $.ajax({
+            url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
+         success: function(res) {
+        document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1>"
+    }
+    });
+  } else {   
+  }}   
+  
+    function LinkCheck(q){
+       var LinkBox = document.getElementById("LinkCheck");
+        
+        if (LinkBox.checked == true){
+        $.ajax({
+            url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
+         success: function(res) {
+      getsource(res.results[0].id)
+    }
+    });
+    }
+    else {
+    }}
+  
+    function ImageCheck(q){
+      var ImageBox = document.getElementById("ImageCheck")
+        if (ImageBox.checked == true){
+          $.ajax({
+            url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
+         success: function(res) {
+           document.getElementById("output").innerHTML="<br><img 1 src='"+res.baseUri+res.results[0].image+"' width='400' /><br>"
+        }
+        });
+    }
+    else {}
+    }
+   
+    function ServingsCheck(q){
+      var ServingsBox = document.getElementById("ServingsCheck")
+
+      if (ServingsBox.checked ==true){
+        $.ajax({
+            url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
+         success: function(res) {
+        document.getElementById("output").innerHTML="<p1><br><br>Serves "+res.results[0].servings+" people</p1>"
+      }
+      });
+      }
+     else {}
+     }
+
+     function TimeCheck(q){
+      var TimeBox = document.getElementById("TimeCheck")
+
+      if (TimeBox.checked ==true){
+        $.ajax({
+            url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
+         success: function(res) {
+        document.getElementById("output").innerHTML="<p2> Ready in "+res.results[0].readyInMinutes+" minutes </p2>"
+      }
+      });
+      }
+     else {}
+     }
+
+    
+    
+   
+    </script>
+
+
     
 
-    <script>
+<br></br>
 
-id = '9003' 
-	fetch("https://api.spoonacular.com/recipes/" + id + "/information?apiKey=8252d298602840e0801619e65c16d6ec")
-		.then((res) => res.json()) 
-
-.then(output => {
-    var data = output; 
-    console.log(data);
-    }
-)
-
-    </script>
-<body>
-
-    <a class="active" href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-  <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+<div class="MenuTitle">
+  <p3>Select below elements of the recipe to be included in the results.</p3>
 </div>
-</body>
 
-</head>
+<ul>
+  <li>
+    <div class="Title">
+      <label class="checkbox-box">Title
+        <input type="checkbox" id="TitleCheck">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="Link">
+      <label class="checkbox-box">Link
+        <input type="checkbox" id="LinkCheck">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="Image">
+      <label class="checkbox-box">Image
+        <input type="checkbox" id="ImageCheck">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="Servings">
+      <label class="checkbox-box">Servings
+        <input type="checkbox" id="ServingsCheck">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="Time">
+      <label class="checkbox-box">Time
+        <input type="checkbox" id="TimeCheck">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </li>
+</ul>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+          <h5 class="white-text">Still can't find what your looking for?</h5>
+          <p class="grey-text text-lighten-4"> That's too bad; instead, head on over to one of these links. They'll be sure to help you in fiding what you need.</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="https://www.supercook.com/#/recipes">Supercook</a></li>
+            <li><a class="white-text" href="https://www.allrecipes.com/recipes/">AllRecipes</a></li>
+            <li><a class="white-text" href="https://www.epicurious.com/">Epicurious</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made with <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>

@@ -1,13 +1,141 @@
-.topnav {
-overflow: hidden;
-background-color: darkgrey;
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
 }
 
-.topnav input[type=text] {
-    float: right;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
   }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.radiobox {
+  color: teal;
+  padding-left: 10px;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+
+.checkbox-box {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 35px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: teal;
+  border: 2.5px solid black;
+  width: 430px;
+  text-align: center;
+
+}
+
+.Title {
+  position: absolute;
+  top: 207px;
+  left: 1000px;
+}
+
+.Link {
+  position: absolute;
+  top: 262px;
+  left: 1000px;
+}
+
+.Image {
+  position: absolute;
+  top: 317px;
+  left: 1000px;
+}
+
+.Servings {
+  position: absolute;
+  top: 372px;
+  left: 1000px;
+}
+
+.Time {
+  position: absolute;
+  top: 427px;
+  left: 1000px;
+}
+
+.MenuTitle {
+  position: absolute;
+  top: 150px;
+  left: 1000px;
+  font-size: 18px;
+  background-color: gray;
+  text-indent: 24px;
+  width: 430px;
+  border: 2.5px solid black;
+}
+
+.SearchButton {
+
+  position: absolute;
+  top: 75px;
+  right: 100px;
+}
+
+.p1 {
+  position: absolute;
+  top:  150px;
+  right: 100px;
+  color: blue;
+}
+
+.h1{
+  position: absolute;
+  top: 400px;
+}
+
