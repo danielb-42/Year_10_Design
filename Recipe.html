@@ -30,11 +30,14 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
       
-    <input id="search" placeholder="Search...">
-     <div class = "SearchButton">
+  <input id="search" placeholder="Search...">
+      <div class = "SearchButton">
       <button onclick="TitleCheck(document.getElementById('search').value); LinkCheck(document.getElementById('search').value); ImageCheck(document.getElementById('search').value); ServingsCheck(document.getElementById('search').value); TimeCheck(document.getElementById('search').value)">Search</button>
       </div>
-    <div id="output"></div>
+    <div id="TitleResults"></div>
+    <div id="ImageResults"></div>
+    <div id="ServingsResults"></div>
+    <div id="TimeResults"></div>
     <a href="" id="sourceLink"></a>
    
    <script>
@@ -57,7 +60,7 @@ function getsource(id){
         $.ajax({
             url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
          success: function(res) {
-        document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1>"
+        document.getElementById("TitleResults").innerHTML="<h1>"+res.results[0].title+"</h1>"
     }
     });
   } else {   
@@ -83,7 +86,7 @@ function getsource(id){
           $.ajax({
             url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
          success: function(res) {
-           document.getElementById("output").innerHTML="<br><img 1 src='"+res.baseUri+res.results[0].image+"' width='400' /><br>"
+           document.getElementById("ImageResults").innerHTML="<img 1 src='"+res.baseUri+res.results[0].image+"' width='400' /><br>"
         }
         });
     }
@@ -97,7 +100,7 @@ function getsource(id){
         $.ajax({
             url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
          success: function(res) {
-        document.getElementById("output").innerHTML="<p1><br><br>Serves "+res.results[0].servings+" people</p1>"
+        document.getElementById("ServingsResults").innerHTML="<p1>Serves "+res.results[0].servings+" people</p1>"
       }
       });
       }
@@ -111,7 +114,7 @@ function getsource(id){
         $.ajax({
             url:"https://api.spoonacular.com/recipes/search?apiKey=8252d298602840e0801619e65c16d6ec&number=1&query="+q,
          success: function(res) {
-        document.getElementById("output").innerHTML="<p2> Ready in "+res.results[0].readyInMinutes+" minutes </p2>"
+        document.getElementById("TimeResults").innerHTML="<p2> Ready in "+res.results[0].readyInMinutes+" minutes </p2>"
       }
       });
       }
