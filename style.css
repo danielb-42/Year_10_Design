@@ -1,141 +1,144 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
-nav ul a,
-nav .brand-logo {
-  color: #444;
+body {
+background-color: rgb(90, 94, 94);
 }
 
-p {
-  line-height: 2rem;
+.header {
+background-color: rgb(50, 51, 51);
+width: 1450px;
+padding-left: 10px;
+padding-top: 1px;
+height: 90px;
+position: absolute;
+left: 0px;
+top: 0px;
 }
 
-.sidenav-trigger {
-  color: #26a69a;
+#login {
+position: relative;
+top: -70px;
+right: -1110px;
+color: black;
+font-size: 18px;
 }
 
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    max-width: 600px;
+    position: relative;
+    top: 10px;
+    left: 200px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }    
+
+  th {
+      background-color: rgba(255, 248, 248, 0.438);
+      font-size: 21px;
+
+  }
+  
+  td {
+      font-size: 18px;
+      background-color: rgb(255, 255, 255);
+  }
+
+#th1 {
+    background-color: rgba(255, 248, 248, 0.438);
+    max-width: 60px;
+    text-align: center;
 }
-  .parallax-container .section {
+
+#user {
+    position: relative;
+    top: 685px;
+    right: -150px;
+    color: black;
+    border-radius: 6px;
+}
+
+#subject {
+    position: relative;
+    top: 685px;
+    right: -155px;
+    color: black;
+    border-radius: 6px;
+}
+    
+#signIn {
+position: relative;
+top: -20px;
+right: -955px;
+border-radius: 4px;
+transition-duration: 0.4s;
+cursor: pointer;
+padding: 10px;
+font-size: 15px;
+}
+
+
+#signIn:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#signOut {
+position: relative;
+top: -20px;
+right: -960px;
+border-radius: 4px;
+transition-duration: 0.4s;
+cursor: pointer;
+padding: 10px;
+font-size: 15px;
+}
+
+#signOut:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.chat-window{
+    height: 470px;
+    overflow-y: scroll;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
     width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+    position: fixed;
+    bottom: -390px;
+    left: 0px;
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+#msg-input{
+    padding: 10px;
+    border-radius: 20px;
+    width: 65%;
+    margin-left: 2%;
+    position: fixed;
+    bottom: 15px;
+    left: 450px;
 }
 
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
-}
-
-.radiobox {
-  color: teal;
-  padding-left: 10px;
-  margin: 0 auto;
-  max-width: 1280px;
-  width: 90%;
+#msg-btn{
+    width: 9%;
+    padding: 9px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color:  rgb(90, 94, 94);
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-left: 1%;
+    position: relative;
+    bottom: -8px;
 }
 
-.checkbox-box {
-  display: inline-block;
-  cursor: pointer;
-  font-size: 35px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: teal;
-  border: 2.5px solid black;
-  width: 430px;
-  text-align: center;
-
+#msg-btn:hover{
+    background-color: rgb(0, 0, 0);
 }
 
-.Title {
-  position: absolute;
-  top: 207px;
-  left: 1000px;
+.msg{
+    list-style-type: none;
 }
-
-.Link {
-  position: absolute;
-  top: 262px;
-  left: 1000px;
-}
-
-.Image {
-  position: absolute;
-  top: 317px;
-  left: 1000px;
-}
-
-.Servings {
-  position: absolute;
-  top: 372px;
-  left: 1000px;
-}
-
-.Time {
-  position: absolute;
-  top: 427px;
-  left: 1000px;
-}
-
-.MenuTitle {
-  position: absolute;
-  top: 150px;
-  left: 1000px;
-  font-size: 18px;
-  background-color: gray;
-  text-indent: 24px;
-  width: 430px;
-  border: 2.5px solid black;
-}
-
-.SearchButton {
-
-  position: absolute;
-  top: 75px;
-  right: 100px;
-}
-
-.p1 {
-  position: absolute;
-  top:  150px;
-  right: 100px;
-  color: blue;
-}
-
-.h1{
-  position: absolute;
-  top: 400px;
-}
-
